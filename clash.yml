@@ -1,7 +1,5 @@
 ###############################################################
-# 本范例来源为网络
-# YouTube 搜索 波仔分享
-# 原文发布地址 https://www.v2rayssr.com/clashxx.html
+# Cloud Personal VPS
 ###############################################################
 port: 7890
 socks-port: 7891
@@ -118,21 +116,21 @@ Proxy:
 
 
 # 配置开始
-- name: "V2ray节点的主机测试"
+- name: "V2ray节点"
   type: vmess
-  server: v2rayssr.com
+  server: v.ppacc.com
   port: 443
-  uuid: 5b8098e0-c95d-4c74-b5d5-4a330969c8cb
-  alterId: 2
+  uuid: 38cab0ec-fa16-469d-9101-e9562709098f
+  alterId: 0
   cipher: auto
   tls: true
   network: ws
-  ws-path: /v2rayssrcom/
-  Host: v2rayssr.com
+  ws-path: /
+  Host: v.ppacc.com
 
 - name: "Trojan节点的主机测试"
   type: trojan
-  server: www.v2rayssr.com
+  server: v.ppacc.com
   port: 443
   password: v2rayssr.com
 
@@ -146,7 +144,7 @@ Proxy Group:
 - name: "自动节点选择"
   type: url-test
   proxies:
-    - "V2ray节点的主机测试"
+    - "V2ray节点"
     - "Trojan节点的主机测试"
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
@@ -156,7 +154,7 @@ Proxy Group:
   type: select
   proxies:
     - "自动节点选择"
-    - "V2ray节点的主机测试"
+    - "V2ray节点"
     - "Trojan节点的主机测试"
 # 白名单模式 PROXY，黑名单模式 DIRECT
 - name: "Final"
